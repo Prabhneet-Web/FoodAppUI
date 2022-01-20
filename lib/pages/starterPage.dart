@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/animations/fadeAnimation.dart';
+import 'package:food_delivery_app/pages/homePage.dart';
+import 'package:page_transition/page_transition.dart';
 
 class StarterPage extends StatefulWidget {
   const StarterPage({Key? key}) : super(key: key);
@@ -8,7 +10,36 @@ class StarterPage extends StatefulWidget {
   _StarterPageState createState() => _StarterPageState();
 }
 
-class _StarterPageState extends State<StarterPage> {
+class _StarterPageState extends State<StarterPage>
+    with TickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation _animation;
+  bool _textVisible = true;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 100));
+
+    _animation =
+        Tween<double>(begin: 0.0, end: 25.0).animate(_animationController);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void onTap() {
+    setState(() {
+      _textVisible = false;
+    });
+    _animationController.forward().then((f) => Navigator.push(context,
+        PageTransition(type: PageTransitionType.fade, child: HomePage())));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +96,7 @@ class _StarterPageState extends State<StarterPage> {
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),
-                      onPressed: () => {},
+                      onPressed: () => onTap(),
                     ),
                   ),
                 ),
