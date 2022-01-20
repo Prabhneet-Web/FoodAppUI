@@ -86,10 +86,22 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "page_transition",
+      "rootUri": "file:///Users/prabhneetnarula/Development/SDKs/Flutter/.pub-cache/hosted/pub.dartlang.org/page_transition-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path",
       "rootUri": "file:///Users/prabhneetnarula/Development/SDKs/Flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "simple_animations",
+      "rootUri": "file:///Users/prabhneetnarula/Development/SDKs/Flutter/.pub-cache/hosted/pub.dartlang.org/simple_animations-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "sky_engine",
@@ -152,7 +164,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-01-20T02:40:37.233862Z",
+  "generated": "2022-01-20T03:00:16.989221Z",
   "generator": "pub",
   "generatorVersion": "2.15.0"
 }
