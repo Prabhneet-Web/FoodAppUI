@@ -63,7 +63,7 @@ class _StarterPageState extends State<StarterPage>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 FadeAnimation(
-                  1,
+                  1.5,
                   const Text(
                     "Taking Order for Delivery!",
                     style: TextStyle(
@@ -74,14 +74,14 @@ class _StarterPageState extends State<StarterPage>
                 ),
                 const SizedBox(height: 20),
                 FadeAnimation(
-                    1.3,
+                    1.7,
                     const Text(
                         "See restaurants nearby by \nadding the location",
                         style: TextStyle(
                             color: Colors.white, height: 1.4, fontSize: 18))),
                 const SizedBox(height: 20),
                 FadeAnimation(
-                  1.6,
+                  1.9,
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -103,7 +103,7 @@ class _StarterPageState extends State<StarterPage>
                 const SizedBox(height: 30),
                 Align(
                   child: FadeAnimation(
-                    2,
+                    2.2,
                     const Text(
                       "Now Delivery To Your Door 24/7",
                       style: TextStyle(color: Colors.white70, fontSize: 15),
