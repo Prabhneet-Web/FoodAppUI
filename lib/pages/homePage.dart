@@ -91,35 +91,40 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: [
                   FadeAnimation(
-                      0.5,
+                      0.1,
                       makeItem(
                           image: 'lib/assets/images/one.jpeg',
                           title: "Aloo Tikki",
-                          price: "₹ 15")),
+                          price: "₹ 15",
+                          time: "5-10")),
                   FadeAnimation(
-                      0.6,
+                      0.2,
                       makeItem(
                           image: 'lib/assets/images/two.jpeg',
                           title: "Salad",
-                          price: "₹30")),
+                          price: "₹30",
+                          time: "5")),
                   FadeAnimation(
-                      0.7,
+                      0.3,
                       makeItem(
                           image: 'lib/assets/images/three.jpg',
                           title: "ChamCham",
-                          price: "₹ 20")),
+                          price: "₹ 20",
+                          time: "ReadyMade")),
                   FadeAnimation(
-                      0.8,
+                      0.4,
                       makeItem(
                           image: 'lib/assets/images/four.jpg',
                           title: "Chicken",
-                          price: "₹250")),
+                          price: "₹250",
+                          time: "30")),
                   FadeAnimation(
-                      0.9,
+                      0.5,
                       makeItem(
                           image: 'lib/assets/images/five.jpg',
                           title: "NutShell",
-                          price: "₹150"))
+                          price: "₹150",
+                          time: "20"))
                 ],
               ),
             ),
@@ -153,7 +158,7 @@ class HomePage extends StatelessWidget {
         ));
   }
 
-  Widget makeItem({image, title, price}) {
+  Widget makeItem({image, title, price, time}) {
     return AspectRatio(
       aspectRatio: 1 / 1.4,
       child: GestureDetector(
@@ -195,7 +200,7 @@ class HomePage extends StatelessWidget {
                     children: [
                       Text(
                         price,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 40,
                             fontWeight: FontWeight.bold),
@@ -206,6 +211,14 @@ class HomePage extends StatelessWidget {
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 5),
+                      Text(
+                        "Preparation time: $time Minutes",
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      )
                     ],
                   )
                 ],
