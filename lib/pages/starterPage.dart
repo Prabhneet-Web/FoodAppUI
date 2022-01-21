@@ -13,7 +13,7 @@ class StarterPage extends StatefulWidget {
 class _StarterPageState extends State<StarterPage>
     with TickerProviderStateMixin {
   late AnimationController _animationController;
-  late Animation _animation;
+  late Animation<double> _animation;
   bool _textVisible = true;
 
   @override
@@ -22,7 +22,7 @@ class _StarterPageState extends State<StarterPage>
         vsync: this, duration: const Duration(milliseconds: 100));
 
     _animation =
-        Tween<double>(begin: 0.0, end: 25.0).animate(_animationController);
+        Tween<double>(begin: 1.0, end: 25.0).animate(_animationController);
     super.initState();
   }
 
@@ -65,7 +65,7 @@ class _StarterPageState extends State<StarterPage>
                 FadeAnimation(
                   1.5,
                   const Text(
-                    "Taking Order for Delivery!",
+                    "Taking Order for Faster Delivery!",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 50,
@@ -82,31 +82,38 @@ class _StarterPageState extends State<StarterPage>
                 const SizedBox(height: 20),
                 FadeAnimation(
                   1.9,
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: const LinearGradient(
-                            colors: [Colors.yellow, Colors.orange])),
-                    child: MaterialButton(
-                      minWidth: double.infinity,
-                      child: FadeAnimation(
-                        1.8,
-                        const Text(
-                          "Start",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                  ScaleTransition(
+                    scale: _animation,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          gradient: const LinearGradient(
+                              colors: [Colors.yellow, Colors.orange])),
+                      child: AnimatedOpacity(
+                        opacity: _textVisible ? 1.0 : 0.0,
+                        duration: const Duration(milliseconds: 50),
+                        child: MaterialButton(
+                          minWidth: double.infinity,
+                          child: const Text("Start",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20)),
+                          onPressed: () => onTap(),
                         ),
                       ),
-                      onPressed: () => onTap(),
                     ),
                   ),
                 ),
                 const SizedBox(height: 30),
-                Align(
-                  child: FadeAnimation(
-                    2.2,
-                    const Text(
-                      "Now Delivery To Your Door 24/7",
-                      style: TextStyle(color: Colors.white70, fontSize: 15),
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 50),
+                  opacity: _textVisible ? 1.0 : 0.0,
+                  child: Align(
+                    child: FadeAnimation(
+                      2.2,
+                      const Text(
+                        "Now Delivery To Your Door 24/7",
+                        style: TextStyle(color: Colors.white70, fontSize: 15),
+                      ),
                     ),
                   ),
                 ),
