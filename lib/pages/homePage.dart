@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey[100],
-        leading: Icon(null),
+        leading: Icon(Icons.menu_open, color: Colors.grey[700],),
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         actions: [
